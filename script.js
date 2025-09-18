@@ -18,21 +18,20 @@ function divide(a, b){
   return a / b
 }
 
-function operate(a, b, operator){
-  let result = null
+function operate(x, y, operator){
   switch (operator){
     case add:
-      result = add(a, b)
+      num1 = add(x, y)
       break;
     case subtract:
-      result = subtract(a, b) 
+      num1 = subtract(x, y) 
       break;
     case multiply:
-      result = multiply(a, b)
+      num1 = multiply(x, y)
       break;
     case divide:
-      result = divide(a, b)
+      num1 = divide(x, y)
       break;
   }
-  return result
+  return num1 
 }
