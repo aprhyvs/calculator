@@ -35,3 +35,18 @@ function operate(x, y, operator){
   }
   return num1 
 }
+
+let numberBtn = document.querySelectorAll('.number')
+let operateBtn = document.querySelectorAll('.operator')
+
+numberBtn.forEach(element => {
+  element.addEventListener("click", event => {
+    console.log(`clicked ${event.target.innerHTML}`)
+  })
+})
+
+operateBtn.forEach(element => {
+  element.addEventListener("click", event => {
+    console.log(`clicked ${event.target.innerHTML}`)
+  })
+})

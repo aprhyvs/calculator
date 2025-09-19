@@ -39,7 +39,8 @@
 }
 
 .operator,
-.number {
+.number,
+.equal {
   text-align: center;
   background-color: white;
   max-width: 160px;
@@ -47,6 +48,7 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  border: none;
 }
 
 .operator {
@@ -56,3 +58,9 @@
 .number {
   flex: 1 1 30%;
 }
+
+.equal {
+  width: 100%;
+  max-width: 400px;
+}
+
