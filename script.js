@@ -1,4 +1,4 @@
-let num1 = null
+let num1 = null 
 let operator = null
 let num2 = null
 
@@ -38,15 +38,19 @@ function operate(x, y, operator){
 
 let numberBtn = document.querySelectorAll('.number')
 let operateBtn = document.querySelectorAll('.operator')
+let resultEl = document.getElementById('result')
 
 numberBtn.forEach(element => {
   element.addEventListener("click", event => {
-    console.log(`clicked ${event.target.innerHTML}`)
+    console.log(`clicked ${event.target.textContent}`)
+    resultEl.textContent += event.target.textContent
+    num1 = resultEl.textContent 
   })
 })
 
 operateBtn.forEach(element => {
   element.addEventListener("click", event => {
-    console.log(`clicked ${event.target.innerHTML}`)
+    console.log(`clicked ${event.target.textContent}`)
+    element.style.backgroundColor = 'yellow'
   })
 })

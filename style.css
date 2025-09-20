@@ -9,7 +9,7 @@
   display: flex;
   background-color: grey;
   margin: 1em auto;
-  padding: 1rem;
+  padding: 0.25rem;
   width: 80%;
   max-width: 400px;
   flex-direction: column;
@@ -17,16 +17,16 @@
   gap: 4px; 
 }
 
-#result {
+/* #result {
   background-color: white;
   flex: 1 1 100%;
   text-align: right;
   background-color: white;
-  padding: 1em;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-}
+  height: 56px;
+  padding: 0.5em;
+  font-size: 1.5rem;
+  font-weight: 450; 
+} */
 
 .result-wrapper,
 .operator-wrapper,
@@ -40,15 +40,24 @@
 
 .operator,
 .number,
-.equal {
+.equal,
+#result {
   text-align: center;
   background-color: white;
   max-width: 160px;
-  padding: 1em;
-  font-size: 1rem;
-  font-weight: 600;
+  padding: 0.5em;
+  font-size: 1.5rem;
+  font-weight: 400;
   cursor: pointer;
   border: none;
+}
+
+#result {
+  flex: 1 1 100%;
+  min-height: 56px;
+  max-width: none;
+  text-align: right;
+  cursor: default;
 }
 
 .operator {
