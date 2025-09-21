@@ -44,7 +44,11 @@ numberBtn.forEach(element => {
   element.addEventListener("click", event => {
     console.log(`clicked ${event.target.textContent}`)
     resultEl.textContent += event.target.textContent
-    num1 = resultEl.textContent 
+    if (!operator){
+      num1 = resultEl.textContent 
+    } else {
+      num2 = resultEl.textContent
+    }
   })
 })
 
@@ -52,5 +56,7 @@ operateBtn.forEach(element => {
   element.addEventListener("click", event => {
     console.log(`clicked ${event.target.textContent}`)
     element.style.backgroundColor = 'yellow'
+    operator = event.target.textContent
+    resultEl.textContent = ""
   })
 })
