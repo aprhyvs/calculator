@@ -49,11 +49,19 @@ numberBtn.forEach(element => {
   element.addEventListener("click", event => {
     console.log(`clicked ${event.target.textContent}`)
     resultEl.textContent += event.target.textContent
+
+    if (resultEl.classList.contains('operator')) {
+      resultEl.textContent = ''
+      resultEl.textContent += event.target.textContent
+      resultEl.classList.remove('operator') 
+    }
+
     if (!operator){
       num1 = resultEl.textContent
     } else {
       num2 = resultEl.textContent
     }
+
   })
 })
 
@@ -62,7 +70,9 @@ operateBtn.forEach(element => {
     console.log(`clicked ${event.target.textContent}`)
     element.style.backgroundColor = 'yellow'
     operator = event.target.textContent
-    resultEl.textContent = ""
+
+    resultEl.textContent = event.target.textContent
+    resultEl.classList.add('operator');
   })
 })
 
