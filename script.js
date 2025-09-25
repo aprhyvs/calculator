@@ -42,6 +42,7 @@ function operate(x, y, operator){
       resultEl.textContent = num1
       break;
   }
+  num2 = null
   return num1 
 }
 
@@ -76,13 +77,21 @@ operateBtn.forEach(element => {
 
     if (operator && num2){
       operate(parseInt(num1), parseInt(num2), operator[operator.length - 2])
-     } else if (operator && num2 && typeof(num1) == "string") {
-       operate(parseInt(num1), parseInt(num2), operator[operator.length - 1])
-     }
+    } 
+    //  else if (operator && num2 && typeof(num1) == "string") {
+    //   operate(parseInt(num1), parseInt(num2), operator[operator.length - 1])
+    //  }
+
+    if (operator[operator.length - 1] === 'C'){
+      resultEl.textContent = ''
+      num1 = null
+      num2 = null
+      operator = []
+    }
+
   })
 })
 
 equalEl.addEventListener("click", () => {
-  operator = operator[operator.length - 1]
-  operate(parseInt(num1), parseInt(num2), operator)
+  operate(parseInt(num1), parseInt(num2), operator[operator.length - 1])
 })
