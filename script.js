@@ -6,6 +6,7 @@ let numberBtn = document.querySelectorAll('.number')
 let operateBtn = document.querySelectorAll('.operator')
 let resultEl = document.getElementById('result')
 let equalEl = document.getElementById('equal')
+let clickedBtn 
 
 function add(a, b){
   return a + b
@@ -68,30 +69,41 @@ numberBtn.forEach(element => {
 
 operateBtn.forEach(element => {
   element.addEventListener("click", event => {
-    console.log(`clicked ${event.target.textContent}`)
-    element.style.backgroundColor = 'yellow'
-    operator.push(event.target.textContent);
+    if (num1 == null && num2 == null){
+      console.log('no numbers yet.')
+    } else {
+      console.log(`clicked ${event.target.textContent}`)
+      element.classList.add('clicked')
+      operator.push(event.target.textContent);
 
-    // resultEl.textContent = event.target.textContent
-    resultEl.classList.add('operator');
+      // resultEl.textContent = event.target.textContent
+      resultEl.classList.add('operator');
 
-    if (operator && num2){
-      operate(parseInt(num1), parseInt(num2), operator[operator.length - 2])
-    } 
-    //  else if (operator && num2 && typeof(num1) == "string") {
-    //   operate(parseInt(num1), parseInt(num2), operator[operator.length - 1])
-    //  }
+      if (operator && num2){
+        operate(parseInt(num1), parseInt(num2), operator[operator.length - 2])
+        element.classList.remove('clicked')
+      } 
+      //  else if (operator && num2 && typeof(num1) == "string") {
+      //   operate(parseInt(num1), parseInt(num2), operator[operator.length - 1])
+      //  }
 
-    if (operator[operator.length - 1] === 'C'){
-      resultEl.textContent = ''
-      num1 = null
-      num2 = null
-      operator = []
+      if (operator[operator.length - 1] === 'C'){
+        resultEl.textContent = ''
+        num1 = null
+        num2 = null
+        operator = []
+        clickedBtn = document.querySelector('.clicked')
+        clickedBtn.classList.remove('clicked')
+      }
     }
-
   })
 })
 
 equalEl.addEventListener("click", () => {
+  if (num2 == null){
+    return num1 
+  }
+  clickedBtn = document.querySelector('.clicked')
+  clickedBtn.classList.remove('clicked')
   operate(parseInt(num1), parseInt(num2), operator[operator.length - 1])
 })
